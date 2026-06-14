@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chocolate Lava Cake – Recipe Card</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="page-bg"></div>
+
+  <main class="card" id="recipeCard">
+
+    <!-- HEADER -->
+    <header class="card__header">
+      <span class="card__tag">Dessert · Classic</span>
+      <h1 class="card__title">Chocolate<br>Lava Cake</h1>
+      <div class="card__meta">
+        <div class="meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span><strong>25 min</strong> prep</span>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span><strong>4</strong> servings</span>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+          <span><strong>450</strong> kcal</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO IMAGE -->
+    <div class="card__image-wrap">
+      <div class="card__image-placeholder">
+        <div class="cake-illustration">
+          <div class="cake-plate"></div>
+          <div class="cake-body">
+            <div class="lava-flow"></div>
+          </div>
+          <div class="cake-top"></div>
+          <div class="dust dust1"></div>
+          <div class="dust dust2"></div>
+          <div class="dust dust3"></div>
+        </div>
+        <p class="image-note">🍫 Replace with your dish photo</p>
+      </div>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-section">
+      <div class="progress-label">
+        <span>Cooking progress</span>
+        <span id="progressText">0 / 6 steps</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+
+    <!-- TIMER (Bonus) -->
+    <div class="timer-section" id="timerSection" style="display:none;">
+      <div class="timer-ring">
+        <svg viewBox="0 0 120 120">
+          <circle class="timer-ring__bg" cx="60" cy="60" r="50"/>
+          <circle class="timer-ring__fill" id="timerCircle" cx="60" cy="60" r="50"/>
+        </svg>
+        <div class="timer-display">
+          <span id="timerDisplay">25:00</span>
+          <small>remaining</small>
+        </div>
+      </div>
+      <button class="btn btn--ghost" id="stopTimerBtn">Stop Timer</button>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="card__section" id="ingredientsSection">
+      <div class="section-header" id="ingredientsToggle">
+        <h2 class="section-title">
+          <span class="section-icon">🧂</span> Ingredients
+        </h2>
+        <button class="toggle-btn" aria-expanded="true" aria-controls="ingredientsList">
+          <span class="toggle-text">Hide</span>
+          <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+        </button>
+      </div>
+
+      <ul class="ingredients-list" id="ingredientsList">
+        <li class="ingredient-item" data-amount="115g">
+          <span class="ingredient-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+          <span class="ingredient-amount">115g</span>
+          <span class="ingredient-name">dark chocolate (70%+)</span>
+        </li>
+        <li class="ingredient-item" data-amount="115g">
+          <span class="ingredient-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+          <span class="ingredient-amount">115g</span>
+          <span class="ingredient-name">unsalted butter</span>
+        </li>
+        <li class="ingredient-item" data-amount="2">
+          <span class="ingredient-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+          <span class="ingredient-amount">2</span>
+          <span class="ingredient-name">whole eggs</span>
+        </li>
+        <li class="ingredient-item" data-amount="2">
+          <span class="ingredient-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+          <span class="ingredient-amount">2</span>
+          <span class="ingredient-name">egg yolks</span>
+        </li>
+        <li class="ingredient-item" data-amount="60g">
+          <span class="ingredient-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+          <span class="ingredient-amount">60g</span>
+          <span class="ingredient-name">caster sugar</span>
+        </li>
+        <li class="ingredient-item" data-amount="30g">
+          <span class="ingredient-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+          <span class="ingredient-amount">30g</span>
+          <span class="ingredient-name">plain flour</span>
+        </li>
+        <li class="ingredient-item" data-amount="1 tsp">
+          <span class="ingredient-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+          <span class="ingredient-amount">1 tsp</span>
+          <span class="ingredient-name">vanilla extract</span>
+        </li>
+        <li class="ingredient-item" data-amount="pinch">
+          <span class="ingredient-check" role="checkbox" aria-checked="false" tabindex="0"></span>
+          <span class="ingredient-amount">pinch</span>
+          <span class="ingredient-name">flaky sea salt</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- STEPS -->
+    <section class="card__section" id="stepsSection">
+      <div class="section-header" id="stepsToggle">
+        <h2 class="section-title">
+          <span class="section-icon">👨‍🍳</span> Instructions
+        </h2>
+        <button class="toggle-btn" aria-expanded="true" aria-controls="stepsList">
+          <span class="toggle-text">Hide</span>
+          <svg class="toggle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+        </button>
+      </div>
+
+      <ol class="steps-list" id="stepsList">
+        <li class="step-item" data-step="1">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3 class="step-heading">Prep your ramekins</h3>
+            <p>Preheat the oven to <strong>220°C (200°C fan)</strong>. Generously butter 4 individual ramekins (150ml) and dust with cocoa powder, tapping out the excess.</p>
+          </div>
+        </li>
+        <li class="step-item" data-step="2">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3 class="step-heading">Melt chocolate & butter</h3>
+            <p>Break the chocolate into pieces and place in a heatproof bowl with the butter. Melt over a pan of barely simmering water (bain-marie), stirring occasionally until smooth. Remove from heat and set aside to cool slightly.</p>
+          </div>
+        </li>
+        <li class="step-item" data-step="3">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3 class="step-heading">Whisk eggs & sugar</h3>
+            <p>In a large bowl, whisk the eggs, egg yolks, and caster sugar together until the mixture is pale, thick, and has doubled in volume — about 3 minutes with an electric whisk.</p>
+          </div>
+        </li>
+        <li class="step-item" data-step="4">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h3 class="step-heading">Combine & fold</h3>
+            <p>Pour the cooled chocolate mixture into the egg mixture and gently fold together using a spatula. Sift in the flour and fold until just combined — do not overmix.</p>
+          </div>
+        </li>
+        <li class="step-item" data-step="5">
+          <div class="step-num">05</div>
+          <div class="step-content">
+            <h3 class="step-heading">Fill & chill</h3>
+            <p>Divide the batter evenly among the prepared ramekins. At this point you can refrigerate them for up to 24 hours — just add 2 minutes to the bake time if cooking from cold.</p>
+          </div>
+        </li>
+        <li class="step-item" data-step="6">
+          <div class="step-num">06</div>
+          <div class="step-content">
+            <h3 class="step-heading">Bake & serve immediately</h3>
+            <p>Place ramekins on a baking tray and bake for <strong>10–12 minutes</strong> until the tops are set but the centres still wobble. Run a knife around the edge, invert onto a warm plate, and serve at once with vanilla ice cream.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ACTIONS -->
+    <div class="card__actions">
+      <button class="btn btn--primary" id="startCookingBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Start Cooking
+      </button>
+      <button class="btn btn--outline" id="nextStepBtn" style="display:none;">
+        Next Step →
+      </button>
+      <button class="btn btn--ghost" id="printBtn" onclick="window.print()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print Recipe
+      </button>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
