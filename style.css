@@ -1,6 +1,4 @@
-/* ============================================
-   RESET & BASE
-   ============================================ */
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -40,8 +38,6 @@ body {
   justify-content: center;
   padding: 40px 16px;
 }
-
-/* Decorative background blobs */
 .page-bg {
   position: fixed;
   inset: 0;
@@ -52,9 +48,6 @@ body {
   pointer-events: none;
 }
 
-/* ============================================
-   CARD
-   ============================================ */
 .card {
   position: relative;
   z-index: 1;
@@ -72,9 +65,6 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ============================================
-   HEADER
-   ============================================ */
 .card__header {
   background: linear-gradient(135deg, var(--brown) 0%, var(--choco) 100%);
   color: #fff;
@@ -139,9 +129,6 @@ body {
   background: rgba(255,255,255,0.2);
 }
 
-/* ============================================
-   IMAGE
-   ============================================ */
 .card__image-wrap {
   background: var(--step-bg);
   border-bottom: 1px solid var(--border);
@@ -157,7 +144,6 @@ body {
   min-height: 240px;
 }
 
-/* CSS Cake Illustration */
 .cake-illustration {
   position: relative;
   width: 120px;
@@ -231,9 +217,6 @@ body {
   font-style: italic;
 }
 
-/* ============================================
-   PROGRESS BAR
-   ============================================ */
 .progress-section {
   padding: 20px 40px;
   border-bottom: 1px solid var(--border);
@@ -281,9 +264,6 @@ body {
   to   { opacity: 0; }
 }
 
-/* ============================================
-   TIMER (Bonus)
-   ============================================ */
 .timer-section {
   display: flex;
   flex-direction: column;
@@ -341,9 +321,6 @@ body {
 .timer-display span { font-size: 1.3rem; }
 .timer-display small { font-size: 10px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
 
-/* ============================================
-   SECTIONS
-   ============================================ */
 .card__section {
   padding: 28px 40px;
   border-bottom: 1px solid var(--border);
@@ -389,7 +366,6 @@ body {
 .toggle-arrow { width: 14px; height: 14px; transition: transform var(--transition); }
 .toggle-btn[aria-expanded="false"] .toggle-arrow { transform: rotate(180deg); }
 
-/* Collapsible content */
 .ingredients-list,
 .steps-list {
   overflow: hidden;
@@ -404,9 +380,6 @@ body {
   opacity: 0;
 }
 
-/* ============================================
-   INGREDIENTS
-   ============================================ */
 .ingredients-list {
   list-style: none;
   display: grid;
@@ -477,9 +450,6 @@ body {
   color: var(--brown);
 }
 
-/* ============================================
-   STEPS
-   ============================================ */
 .steps-list {
   list-style: none;
   display: flex;
@@ -549,10 +519,6 @@ body {
   line-height: 1.7;
   color: #5a4540;
 }
-
-/* ============================================
-   ACTIONS
-   ============================================ */
 .card__actions {
   display: flex;
   align-items: center;
@@ -601,9 +567,6 @@ body {
 }
 .btn--ghost:hover { background: var(--brown); color: #fff; }
 
-/* ============================================
-   PRINT STYLES
-   ============================================ */
 @media print {
   body { padding: 0; background: #fff; }
   .page-bg, .card__actions, .toggle-btn, .timer-section { display: none !important; }
@@ -612,11 +575,7 @@ body {
   .ingredients-list, .steps-list { max-height: none !important; opacity: 1 !important; }
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
 
-/* Tablet */
 @media (max-width: 640px) {
   body { padding: 16px 8px; }
 
@@ -638,7 +597,6 @@ body {
   .step-num { font-size: 1.1rem; }
 }
 
-/* Mobile */
 @media (max-width: 380px) {
   .card__title { font-size: 1.7rem; }
   .meta-divider { display: none; }
