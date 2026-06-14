@@ -1,16 +1,11 @@
-/* ============================================
-   INTERACTIVE RECIPE CARD – script.js
-   ============================================ */
-
 const TOTAL_STEPS = 6;
-const PREP_TIME_SECONDS = 25 * 60; // 25 minutes
+const PREP_TIME_SECONDS = 25 * 60; 
 
-let currentStep = 0;   // 0 = not started
+let currentStep = 0;  
 let cookingMode = false;
 let timerInterval = null;
 let timerSecondsLeft = PREP_TIME_SECONDS;
 
-/* ── DOM refs ──────────────────────────────── */
 const startBtn       = document.getElementById('startCookingBtn');
 const nextBtn        = document.getElementById('nextStepBtn');
 const progressBar    = document.getElementById('progressBar');
@@ -22,7 +17,6 @@ const stopTimerBtn   = document.getElementById('stopTimerBtn');
 const stepItems      = document.querySelectorAll('.step-item');
 const ingredientItems = document.querySelectorAll('.ingredient-item');
 
-/* ── TOGGLE SECTIONS ───────────────────────── */
 function setupToggle(headerId, listId) {
   const header = document.getElementById(headerId);
   const list   = document.getElementById(listId);
@@ -40,7 +34,6 @@ function setupToggle(headerId, listId) {
 setupToggle('ingredientsToggle', 'ingredientsList');
 setupToggle('stepsToggle', 'stepsList');
 
-/* ── INGREDIENT CHECKBOXES ─────────────────── */
 ingredientItems.forEach(item => {
   item.addEventListener('click', () => {
     item.classList.toggle('checked');
@@ -48,8 +41,6 @@ ingredientItems.forEach(item => {
     const isChecked = item.classList.contains('checked');
     checkbox.setAttribute('aria-checked', String(isChecked));
   });
-
-  // Keyboard accessibility
   const checkbox = item.querySelector('.ingredient-check');
   checkbox.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -59,14 +50,12 @@ ingredientItems.forEach(item => {
   });
 });
 
-/* ── PROGRESS BAR ───────────────────────────── */
 function updateProgress(step) {
   const pct = Math.round((step / TOTAL_STEPS) * 100);
   progressBar.style.width = pct + '%';
   progressText.textContent = `${step} / ${TOTAL_STEPS} steps`;
 }
 
-/* ── STEP HIGHLIGHTING ──────────────────────── */
 function highlightStep(stepNum) {
   stepItems.forEach((item, idx) => {
     item.classList.remove('active', 'done');
@@ -79,10 +68,8 @@ function highlightStep(stepNum) {
   });
 }
 
-/* ── START COOKING ──────────────────────────── */
 startBtn.addEventListener('click', () => {
   if (!cookingMode) {
-    // Enter cooking mode
     cookingMode = true;
     currentStep = 1;
 
@@ -92,7 +79,6 @@ startBtn.addEventListener('click', () => {
 
     nextBtn.style.display = 'inline-flex';
 
-    // Make sure steps section is visible
     const stepsList = document.getElementById('stepsList');
     const stepsToggle = document.getElementById('stepsToggle');
     const stepsBtn = stepsToggle.querySelector('.toggle-btn');
@@ -105,14 +91,12 @@ startBtn.addEventListener('click', () => {
     highlightStep(currentStep);
     updateProgress(0);
 
-    // Start timer
     startTimer();
     timerSection.style.display = 'flex';
 
   }
 });
 
-/* ── NEXT STEP ──────────────────────────────── */
 nextBtn.addEventListener('click', () => {
   if (currentStep < TOTAL_STEPS) {
     updateProgress(currentStep);
@@ -123,7 +107,6 @@ nextBtn.addEventListener('click', () => {
       nextBtn.textContent = 'Finish 🎉';
     }
   } else {
-    // Done!
     updateProgress(TOTAL_STEPS);
     stepItems.forEach(item => { item.classList.remove('active'); item.classList.add('done'); });
     nextBtn.style.display = 'none';
@@ -135,8 +118,6 @@ nextBtn.addEventListener('click', () => {
     confetti();
   }
 });
-
-/* ── TIMER ──────────────────────────────────── */
 const CIRCUMFERENCE = 2 * Math.PI * 50; // r=50
 
 function startTimer() {
@@ -175,7 +156,6 @@ stopTimerBtn.addEventListener('click', () => {
   timerSection.style.display = 'none';
 });
 
-/* ── CONFETTI (mini celebration) ────────────── */
 function confetti() {
   const colors = ['#C0392B', '#D4A017', '#6B3A2A', '#5cb85c', '#fff'];
   for (let i = 0; i < 60; i++) {
@@ -197,7 +177,6 @@ function confetti() {
     setTimeout(() => el.remove(), 3000);
   }
 
-  // Inject animation if not already there
   if (!document.getElementById('confettiStyle')) {
     const style = document.createElement('style');
     style.id = 'confettiStyle';
